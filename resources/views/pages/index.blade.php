@@ -45,19 +45,49 @@
                     <li class="nav-item mx-2">
                         <a class="nav-link text-light" href="#">Contacts</a>
                     </li>
+                    @if (!Auth::guest())
+                        <li class="nav-item mx-2">
+                            <a class="nav-link text-light" href="{{url('/cabinet')}}">Work place</a>
+                        </li>
+                    @endif
                 </ul>
-                <div class="form-inline my-2 my-lg-0 mr-2">
-                    <a href="{{route('login')}}">
-                        <button class="btn btn-warning  my-2 my-sm-0 text-uppercase" type="submit">login
-                        </button>
-                    </a>
-                </div>
-                <div class="form-inline my-2 my-lg-0">
-                    <a href="{{route('register')}}">
-                        <button class="btn btn-warning  my-2 my-sm-0 text-uppercase" type="submit">register
-                        </button>
-                    </a>
-                </div>
+                @guest
+                    <div class="form-inline my-2 my-lg-0 mr-2">
+                        <a href="{{route('login')}}">
+                            <button class="btn btn-warning  my-2 my-sm-0 text-uppercase" type="submit">login
+                            </button>
+                        </a>
+                    </div>
+                    @if (Route::has('register'))
+                        <div class="form-inline my-2 my-lg-0">
+                            <a href="{{route('register')}}">
+                                <button class="btn btn-warning  my-2 my-sm-0 text-uppercase" type="submit">register
+                                </button>
+                            </a>
+                        </div>
+                    @endif
+                @else
+                    <li class="nav-item dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                @endguest
+
+
             </div>
         </nav>
 

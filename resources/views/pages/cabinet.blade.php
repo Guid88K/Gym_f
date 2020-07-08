@@ -413,7 +413,7 @@ MAIN CONTENT LAYOUT
 
         <!-- Hero -->
         <!-- jQuery Vide for video backgrounds, for more examples you can check out https://github.com/VodkaBears/Vide -->
-        <div class="bg-video " data-vide-bg="assets/media/videos/gym1.mp4" data-vide-options="posterType: mp4">
+        <div class="bg-video " data-vide-bg="{{asset('assets/media/videos/gym1.mp4')}}" data-vide-options="posterType: mp4">
             <div class="bg-primary-dark-op">
                 <div class="content text-center">
                     <div class="pt-50 pb-50">

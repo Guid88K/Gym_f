@@ -24,4 +24,20 @@ Route::get('/', 'MainController@index');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
+    Route::get('/cabinet', function () {
+        return view('pages.cabinet');
+    });
+});
+Route::group(['middleware' => 'user', 'prefix' => 'user'], function () {
+    Route::get('/cabinet', function () {
+        return view('pages.cabinet');
+    });
+});
+Route::group(['middleware' => 'nutritionist', 'prefix' => 'nutritionist'], function () {
+
+});
+Route::group(['middleware' => 'trainer', 'prefix' => 'trainer'], function () {
+
+});
