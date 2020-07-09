@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-Route::get('/cabinet', function () {
-    return view('pages.cabinet');
-});
+
 
 Route::get('/', 'MainController@index');
 
@@ -29,6 +27,7 @@ Route::group(['middleware' => 'admin', 'prefix' => 'admin'], function () {
     Route::get('/cabinet', function () {
         return view('pages.cabinet');
     });
+    Route::resource('/programs', 'AdminController');
 });
 Route::group(['middleware' => 'user', 'prefix' => 'user'], function () {
     Route::get('/cabinet', function () {

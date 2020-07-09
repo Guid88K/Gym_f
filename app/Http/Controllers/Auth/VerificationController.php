@@ -26,7 +26,19 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/cabinet';
+    protected function redirectTo()
+    {
+        if (auth()->user()->role == 'admin') {
+            return '/admin/cabinet';
+        } elseif (auth()->user()->role == 'nutritionist') {
+            return '/nutritionist/cabinet';
+        } elseif (auth()->user()->role == 'trainer') {
+            return '/trainer/cabinet';
+        } else {
+            return '/user/cabinet';
+        }
+
+    }
 
     /**
      * Create a new controller instance.
