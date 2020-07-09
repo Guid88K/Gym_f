@@ -35,7 +35,9 @@ Route::group(['middleware' => 'user', 'prefix' => 'user'], function () {
     });
 });
 Route::group(['middleware' => 'nutritionist', 'prefix' => 'nutritionist'], function () {
-
+    Route::get('/cabinet', function () {
+        return view('pages.cabinet');
+    });
 });
 Route::group(['middleware' => 'trainer', 'prefix' => 'trainer'], function () {
 

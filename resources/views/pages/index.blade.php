@@ -17,7 +17,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent  ">
             <a href="#" class="navbar-brend  text-warning font-weight-bold ml-5 text-uppercase">
                 <img src="{{asset('img/training%20(1).svg')}}" class="mr-4" width="65" height="65"><span
-                    style="font-size: 20px;">muscul</span>
+                    style="font-size: 20px;">SportPlan</span>
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
                     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +47,7 @@
                     </li>
                     @if (!Auth::guest())
                         <li class="nav-item mx-2">
-                            <a class="nav-link text-light" href="{{url('/cabinet')}}">Work place</a>
+                            <a class="nav-link text-light" href="{{url('/'.Auth::user()->role.'/cabinet')}}">Work place</a>
                         </li>
                     @endif
                 </ul>

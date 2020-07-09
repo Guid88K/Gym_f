@@ -11,7 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="13dfb774-f366-429f-8086-debb9cfebaa4" name="Default Changelist" comment="second1">
+      <change afterPath="$PROJECT_DIR$/resources/views/pages/trainer/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/cabinet.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cabinet.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +74,14 @@
       <workItem from="1594126870828" duration="2929000" />
       <workItem from="1594226986235" duration="2474000" />
     </task>
+    <task id="LOCAL-00001" summary="second1">
+      <created>1594279577088</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1594279577088</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -78,15 +90,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="second1" />
+    <option name="LAST_COMMIT_MESSAGE" value="second1" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="559" y="266" key="Github.ShareDialog" timestamp="1594279376817">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="559" y="266" key="Github.ShareDialog/0.0.1366.728@0.0.1366.728" timestamp="1594279376817" />
-    <state x="275" y="93" key="Vcs.Push.Dialog.v2" timestamp="1594279284354">
+    <state x="534" y="1" key="RollbackChangesDialog" timestamp="1594279473379">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="93" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1594279284354" />
+    <state x="534" y="1" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1594279473379" />
+    <state width="498" height="446" key="SwitcherDM" timestamp="1594281360369">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="498" height="446" key="SwitcherDM/0.0.1366.728@0.0.1366.728" timestamp="1594281360369" />
+    <state x="275" y="93" key="Vcs.Push.Dialog.v2" timestamp="1594279585404">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="93" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1594279585404" />
+    <state x="492" y="206" key="git4idea.rebase.GitRebaseDialog" timestamp="1594279496726">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="492" y="206" key="git4idea.rebase.GitRebaseDialog/0.0.1366.728@0.0.1366.728" timestamp="1594279496726" />
     <state x="483" y="260" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1594279365484">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

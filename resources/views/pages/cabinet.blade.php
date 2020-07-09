@@ -99,8 +99,8 @@ MAIN CONTENT LAYOUT
                 <div class="content-header-item">
                     <a class="link-effect font-w700 mr-5" href="{{url('/')}}">
                         <i class="si si-fire text-primary"></i>
-                        <span class="font-size-xl text-dual-primary-dark">code</span><span
-                            class="font-size-xl text-primary">base</span>
+                        <span class="font-size-xl text-dual-primary-dark">Sport</span><span
+                            class="font-size-xl text-primary">Plan</span>
                     </a>
                 </div>
                 <!-- END Logo -->
@@ -119,7 +119,8 @@ MAIN CONTENT LAYOUT
                 -->
                 <ul class="nav-main-header">
                     <li>
-                        <a href="{{url('/'.Auth::user()->role.'/cabinet')}}"><i class="si si-compass"></i>Training programs</a>
+                        <a href="{{url('/'.Auth::user()->role.'/cabinet')}}"><i class="si si-compass"></i>Training
+                            programs</a>
                     </li>
                     <li class="open">
                         <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-puzzle"></i>Variations</a>
@@ -170,17 +171,22 @@ MAIN CONTENT LAYOUT
                             </li>
                         </ul>
                     </li>
-                    @if(Auth::user()->role == 'admin')
+                    @if(Auth::user()->role == 'admin' || Auth::user()->role == 'trainer')
                         <li>
                             <a href="bd_search.html"><i class="si si-plus"></i>Add program</a>
+                        </li>
+                    @endif
+                    @if(Auth::user()->role == 'admin' || Auth::user()->role == 'nutritionist')
+                        <li>
+                            <a href="bd_search.html"><i class="si si-plus"></i>Add recipe</a>
                         </li>
                     @endif
                     <li>
                         <a href="bd_search.html"><i class="si si-magnifier"></i>Search</a>
                     </li>
-                    <li>
-                        <a href="be_pages_dashboard.html"><i class="si si-action-undo"></i>Go Back</a>
-                    </li>
+                    {{--                    <li>--}}
+                    {{--                        <a href="be_pages_dashboard.html"><i class="si si-action-undo"></i>Go Back</a>--}}
+                    {{--                    </li>--}}
                 </ul>
                 <!-- END Header Navigation -->
             </div>
@@ -191,125 +197,150 @@ MAIN CONTENT LAYOUT
                 <!-- Color Themes + A few of the many header options (used just for demonstration) -->
                 <!-- Themes functionality initialized in Template._uiHandleTheme() -->
                 <div class="btn-group ml-5" role="group">
-                    <button type="button" class="btn btn-circle btn-dual-secondary" id="page-header-themes-dropdown"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-paint-brush"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right min-width-150"
-                         aria-labelledby="page-header-themes-dropdown">
-                        <h6 class="dropdown-header text-center">Color Themes</h6>
-                        <div class="row no-gutters text-center">
-                            <div class="col-4 mb-5">
-                                <a class="text-default" data-toggle="theme" data-theme="default"
-                                   href="javascript:void(0)">
-                                    <i class="fa fa-2x fa-circle"></i>
-                                </a>
-                            </div>
-                            <div class="col-4 mb-5">
-                                <a class="text-elegance" data-toggle="theme"
-                                   data-theme="assets/css/themes/elegance.min.css"
-                                   href="javascript:void(0)">
-                                    <i class="fa fa-2x fa-circle"></i>
-                                </a>
-                            </div>
-                            <div class="col-4 mb-5">
-                                <a class="text-pulse" data-toggle="theme"
-                                   data-theme="assets/css/themes/pulse.min.css" href="javascript:void(0)">
-                                    <i class="fa fa-2x fa-circle"></i>
-                                </a>
-                            </div>
-                            <div class="col-4 mb-5">
-                                <a class="text-flat" data-toggle="theme"
-                                   data-theme="assets/css/themes/flat.min.css" href="javascript:void(0)">
-                                    <i class="fa fa-2x fa-circle"></i>
-                                </a>
-                            </div>
-                            <div class="col-4 mb-5">
-                                <a class="text-corporate" data-toggle="theme"
-                                   data-theme="assets/css/themes/corporate.min.css"
-                                   href="javascript:void(0)">
-                                    <i class="fa fa-2x fa-circle"></i>
-                                </a>
-                            </div>
-                            <div class="col-4 mb-5">
-                                <a class="text-earth" data-toggle="theme"
-                                   data-theme="assets/css/themes/earth.min.css" href="javascript:void(0)">
-                                    <i class="fa fa-2x fa-circle"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <h6 class="dropdown-header text-center">Header</h6>
-                        <button type="button" class="btn btn-sm btn-block btn-alt-secondary" data-toggle="layout"
-                                data-action="header_fixed_toggle">Fixed Mode
-                        </button>
-                        <button type="button" class="btn btn-sm btn-block btn-alt-secondary mb-10" data-toggle="layout"
-                                data-action="header_style_inverse_toggle">Style
-                        </button>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="be_layout_api.html">
-                            <i class="si si-chemistry"></i> All Options (API)
-                        </a>
-                    </div>
-                </div>
+                {{--                    <button type="button" class="btn btn-circle btn-dual-secondary" id="page-header-themes-dropdown"--}}
+                {{--                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+                {{--                        <i class="fa fa-paint-brush"></i>--}}
+                {{--                    </button>--}}
+                {{--                    <div class="dropdown-menu dropdown-menu-right min-width-150"--}}
+                {{--                         aria-labelledby="page-header-themes-dropdown">--}}
+                {{--                        <h6 class="dropdown-header text-center">Color Themes</h6>--}}
+                {{--                        <div class="row no-gutters text-center">--}}
+                {{--                            <div class="col-4 mb-5">--}}
+                {{--                                <a class="text-default" data-toggle="theme" data-theme="default"--}}
+                {{--                                   href="javascript:void(0)">--}}
+                {{--                                    <i class="fa fa-2x fa-circle"></i>--}}
+                {{--                                </a>--}}
+                {{--                            </div>--}}
+                {{--                            <div class="col-4 mb-5">--}}
+                {{--                                <a class="text-elegance" data-toggle="theme"--}}
+                {{--                                   data-theme="assets/css/themes/elegance.min.css"--}}
+                {{--                                   href="javascript:void(0)">--}}
+                {{--                                    <i class="fa fa-2x fa-circle"></i>--}}
+                {{--                                </a>--}}
+                {{--                            </div>--}}
+                {{--                            <div class="col-4 mb-5">--}}
+                {{--                                <a class="text-pulse" data-toggle="theme"--}}
+                {{--                                   data-theme="assets/css/themes/pulse.min.css" href="javascript:void(0)">--}}
+                {{--                                    <i class="fa fa-2x fa-circle"></i>--}}
+                {{--                                </a>--}}
+                {{--                            </div>--}}
+                {{--                            <div class="col-4 mb-5">--}}
+                {{--                                <a class="text-flat" data-toggle="theme"--}}
+                {{--                                   data-theme="assets/css/themes/flat.min.css" href="javascript:void(0)">--}}
+                {{--                                    <i class="fa fa-2x fa-circle"></i>--}}
+                {{--                                </a>--}}
+                {{--                            </div>--}}
+                {{--                            <div class="col-4 mb-5">--}}
+                {{--                                <a class="text-corporate" data-toggle="theme"--}}
+                {{--                                   data-theme="assets/css/themes/corporate.min.css"--}}
+                {{--                                   href="javascript:void(0)">--}}
+                {{--                                    <i class="fa fa-2x fa-circle"></i>--}}
+                {{--                                </a>--}}
+                {{--                            </div>--}}
+                {{--                            <div class="col-4 mb-5">--}}
+                {{--                                <a class="text-earth" data-toggle="theme"--}}
+                {{--                                   data-theme="assets/css/themes/earth.min.css" href="javascript:void(0)">--}}
+                {{--                                    <i class="fa fa-2x fa-circle"></i>--}}
+                {{--                                </a>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                        <h6 class="dropdown-header text-center">Header</h6>--}}
+                {{--                        <button type="button" class="btn btn-sm btn-block btn-alt-secondary" data-toggle="layout"--}}
+                {{--                                data-action="header_fixed_toggle">Fixed Mode--}}
+                {{--                        </button>--}}
+                {{--                        <button type="button" class="btn btn-sm btn-block btn-alt-secondary mb-10" data-toggle="layout"--}}
+                {{--                                data-action="header_style_inverse_toggle">Style--}}
+                {{--                        </button>--}}
+                {{--                        <div class="dropdown-divider"></div>--}}
+                {{--                        <a class="dropdown-item" href="be_layout_api.html">--}}
+                {{--                            <i class="si si-chemistry"></i> All Options (API)--}}
+                {{--                        </a>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
                 <!-- END Color Themes + A few of the many header options -->
 
-                <!-- Open Search Section -->
-                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                <button type="button" class="btn btn-circle btn-dual-secondary" data-toggle="layout"
-                        data-action="header_search_on">
-                    <i class="fa fa-search"></i>
-                </button>
+                    <!-- Open Search Section -->
+                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                    <li class="list-inline-item">
+                        <a id="navbarDropdown" class="link-effect text-dual-primary-dark" role="button"
+                           href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="si si-logout"></i>
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                {{--                    <li class="nav-item dropdown">--}}
+                {{--                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"--}}
+                {{--                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>--}}
+                {{--                            {{ Auth::user()->name }} <span class="caret"></span>--}}
+                {{--                        </a>--}}
+
+                {{--                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+                {{--                            <a class="dropdown-item" href="{{ route('logout') }}"--}}
+                {{--                               onclick="event.preventDefault();--}}
+                {{--                                                     document.getElementById('logout-form').submit();">--}}
+                {{--                                {{ __('Logout') }}--}}
+                {{--                            </a>--}}
+
+                {{--                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+                {{--                                @csrf--}}
+                {{--                            </form>--}}
+                {{--                        </div>--}}
+                {{--                    </li>--}}
                 <!-- END Open Search Section -->
 
-                <!-- Toggle Sidebar -->
-                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                <button type="button" class="btn btn-circle btn-dual-secondary d-lg-none" data-toggle="layout"
-                        data-action="sidebar_toggle">
-                    <i class="fa fa-navicon"></i>
-                </button>
-                <!-- END Toggle Sidebar -->
+                    <!-- Toggle Sidebar -->
+                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                    <button type="button" class="btn btn-circle btn-dual-secondary d-lg-none" data-toggle="layout"
+                            data-action="sidebar_toggle">
+                        <i class="fa fa-navicon"></i>
+                    </button>
+                    <!-- END Toggle Sidebar -->
+                </div>
+                <!-- END Right Section -->
             </div>
-            <!-- END Right Section -->
-        </div>
-        <!-- END Header Content -->
+            <!-- END Header Content -->
 
-        <!-- Header Search -->
-        <div id="page-header-search" class="overlay-header">
-            <div class="content-header content-header-fullrow">
-                <form action="bd_search.html" method="post">
-                    <div class="input-group">
-                        <div class="input-group-prepend">
-                            <!-- Close Search Section -->
-                            <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
-                            <button type="button" class="btn btn-secondary px-15" data-toggle="layout"
-                                    data-action="header_search_off">
-                                <i class="fa fa-times"></i>
-                            </button>
-                            <!-- END Close Search Section -->
+            <!-- Header Search -->
+            <div id="page-header-search" class="overlay-header">
+                <div class="content-header content-header-fullrow">
+                    <form action="bd_search.html" method="post">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <!-- Close Search Section -->
+                                <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                                <button type="button" class="btn btn-secondary px-15" data-toggle="layout"
+                                        data-action="header_search_off">
+                                    <i class="fa fa-times"></i>
+                                </button>
+                                <!-- END Close Search Section -->
+                            </div>
+                            <input type="text" class="form-control" placeholder="Search or hit ESC.."
+                                   id="page-header-search-input" name="page-header-search-input">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary px-15">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
                         </div>
-                        <input type="text" class="form-control" placeholder="Search or hit ESC.."
-                               id="page-header-search-input" name="page-header-search-input">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary px-15">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- END Header Search -->
-
-        <!-- Header Loader -->
-        <!-- Please check out the Activity pages under Elements category to see examples of showing/hiding it -->
-        <div id="page-header-loader" class="overlay-header bg-primary">
-            <div class="content-header content-header-fullrow text-center">
-                <div class="content-header-item">
-                    <i class="fa fa-sun-o fa-spin text-white"></i>
+                    </form>
                 </div>
             </div>
-        </div>
-        <!-- END Header Loader -->
+            <!-- END Header Search -->
+
+            <!-- Header Loader -->
+            <!-- Please check out the Activity pages under Elements category to see examples of showing/hiding it -->
+            <div id="page-header-loader" class="overlay-header bg-primary">
+                <div class="content-header content-header-fullrow text-center">
+                    <div class="content-header-item">
+                        <i class="fa fa-sun-o fa-spin text-white"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- END Header Loader -->
     </header>
     <!-- END Header -->
 
