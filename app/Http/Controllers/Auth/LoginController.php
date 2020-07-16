@@ -31,13 +31,13 @@ class LoginController extends Controller
     protected function redirectTo()
     {
         if (auth()->user()->role == 'admin') {
-            return '/admin/cabinet';
+            return '/admin/programs';
         } elseif (auth()->user()->role == 'nutritionist') {
-            return '/nutritionist/cabinet';
+            return '/nutritionist/programs';
         } elseif (auth()->user()->role == 'trainer') {
-            return '/trainer/cabinet';
+            return '/trainer/programs';
         } else {
-            return '/user/cabinet';
+            return '/user/programs';
         }
 
     }

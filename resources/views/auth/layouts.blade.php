@@ -11,7 +11,13 @@
 <body>
 <div class="container-fluid m-0 p-0">
     <div
-        style="  background-position: center center, center center;  background-size: cover;  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url('img/circles_pattern_black_white.png');">
+        style="  min-width:100%;
+    min-height:100%;
+        top:0;
+        left:0;
+ -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%;  background-size: 100%;  background-image: linear-gradient(to bottom, rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url('img/circles_pattern_black_white.png');">
 
 
         <nav class="navbar navbar-expand-lg navbar-light bg-transparent  ">
@@ -45,11 +51,10 @@
                         <a class="nav-link text-light" href="#">Contacts</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-
-                    <button class="btn btn-warning  my-2 my-sm-0 text-uppercase" type="submit">register
-                    </button>
-                </form>
+                    <a href="{{route('register')}}">
+                        <button class="btn btn-warning  my-2 my-sm-0 text-uppercase" type="submit">register
+                        </button>
+                    </a>
             </div>
         </nav>
 

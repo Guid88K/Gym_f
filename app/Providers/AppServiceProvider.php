@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Kind_of_programs;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        view()->share('kind',Kind_of_programs::all());
     }
 }

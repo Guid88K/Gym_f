@@ -76,60 +76,15 @@
             </div>
 
 
-{{--            <div class="col-md-6 col-lg-9 bg-transparent  mx-auto mb-3 my-4 btn-group ">--}}
-{{--                <div class="form-group">--}}
-{{--                    <div class="form-material">--}}
-{{--                        <select class="form-control" id="val-skill2" name="val-skill2">--}}
-{{--                            <option value="">Please select</option>--}}
-{{--                            <option value="html">HTML</option>--}}
-{{--                            <option value="css">CSS</option>--}}
-{{--                            <option value="javascript">JavaScript</option>--}}
-{{--                            <option value="angular">Angular</option>--}}
-{{--                            <option value="react">React</option>--}}
-{{--                            <option value="vuejs">Vue.js</option>--}}
-{{--                            <option value="ruby">Ruby</option>--}}
-{{--                            <option value="php">PHP</option>--}}
-{{--                            <option value="asp">ASP.NET</option>--}}
-{{--                            <option value="python">Python</option>--}}
-{{--                            <option value="mysql">MySQL</option>--}}
-{{--                        </select>--}}
-{{--                        <label for="val-skill2">Best Skill</label>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col-md-6 col-lg-9 bg-transparent  mx-auto mb-3 my-4 btn-group ">--}}
 
-{{--                <div class="form-group">--}}
-{{--                    <div class="form-material">--}}
-{{--                        <select class="js-select2 form-control" id="val-select22" name="val-select22"--}}
-{{--                                style="width: 100%;" data-placeholder="Choose one..">--}}
-{{--                            <option></option>--}}
-{{--                            <!-- Required for data-placeholder attribute to work with Select2 plugin -->--}}
-{{--                            <option value="html">HTML</option>--}}
-{{--                            <option value="css">CSS</option>--}}
-{{--                            <option value="javascript">JavaScript</option>--}}
-{{--                            <option value="angular">Angular</option>--}}
-{{--                            <option value="react">React</option>--}}
-{{--                            <option value="vuejs">Vue.js</option>--}}
-{{--                            <option value="ruby">Ruby</option>--}}
-{{--                            <option value="php">PHP</option>--}}
-{{--                            <option value="asp">ASP.NET</option>--}}
-{{--                            <option value="python">Python</option>--}}
-{{--                            <option value="mysql">MySQL</option>--}}
-{{--                        </select>--}}
-{{--                        <label for="val-select2">Select2</label>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
 
-{{--            </div>--}}
+
             <div class="col-md-6 col-lg-9 bg-transparent  mx-auto mb-3 my-4 btn-group ">
 
-                <button type="button" class="btn bg-transparent  min-width-100 text-left  dropdown-toggle"
-                        style="border-bottom: 3px solid #FFC107!important; color: #6C757D; " data-toggle="dropdown"
-                        data-display="static" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn bg-transparent  min-width-100 text-left  dropdown-toggle" style="border-bottom: 3px solid #FFC107!important; color: #6C757D; " data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     Left-aligned but right aligned when large screen
                 </button>
-                <div class="dropdown-menu dropdown-menu-lg-right bg-warning">
+                <div class="dropdown-menu dropdown-menu-lg-right">
                     <button class="dropdown-item" type="button">Action</button>
                     <button class="dropdown-item" type="button">Another action</button>
                     <button class="dropdown-item" type="button">Something else here</button>

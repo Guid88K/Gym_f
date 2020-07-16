@@ -8,7 +8,7 @@
 
                 <input style="border-bottom: 3px solid #FFC107!important;" type="email"
                        class="form-control  rounded-0 bg-transparent border-0"
-                       id="email" name="email" autocomplete="none" value="{{ old('email') }}"
+                       id="email" name="email" autocomplete="off" value="{{ old('email') }}"
                        placeholder="Email"
                        required>
                 <div class="valid-tooltip">
@@ -50,15 +50,15 @@
 {{--                    Please provide a valid state.--}}
 {{--                </div>--}}
 {{--            </div>--}}
-            <div class="col-md-6 col-lg-9 mx-auto mb-33 my-4 ">
+{{--            <div class="col-md-6 col-lg-9 mx-auto mb-33 my-4 ">--}}
 
-                <input style="border-bottom: 3px solid #FFC107!important; " type="text"
-                       class="form-control rounded-0 bg-transparent border-0"
-                       id="validationTooltip05" placeholder="Zip" required>
-                <div class="invalid-tooltip">
-                    Please provide a valid zip.
-                </div>
-            </div>
+{{--                <input style="border-bottom: 3px solid #FFC107!important; " type="text"--}}
+{{--                       class="form-control rounded-0 bg-transparent border-0"--}}
+{{--                       id="validationTooltip05" placeholder="Zip" required>--}}
+{{--                <div class="invalid-tooltip">--}}
+{{--                    Please provide a valid zip.--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
         <button class="btn btn-warning mt-5" type="submit">Login</button>
     </form>
