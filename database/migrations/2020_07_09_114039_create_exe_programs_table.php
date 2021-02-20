@@ -15,10 +15,12 @@ class CreateExeProgramsTable extends Migration
     {
         Schema::create('exe_programs', function (Blueprint $table) {
             $table->id();
-            $table->string('days');
+            $table->integer('number');
             $table->string('days_name');
-            $table->string('gif');
-            $table->string('description');
+            $table->longText('name');
+            $table->longText('gif');
+            $table->longText('times');
+            $table->longText('description');
             $table->integer('programs_id');
             $table->timestamps();
         });

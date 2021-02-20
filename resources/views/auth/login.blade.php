@@ -60,7 +60,7 @@
 {{--                </div>--}}
 {{--            </div>--}}
         </div>
-        <button class="btn btn-warning mt-5" type="submit">Login</button>
+        <button class="btn btn-warning mt-5" type="submit">Вход</button>
     </form>
 
 @endsection

@@ -22,6 +22,7 @@ class CreateProgramsTable extends Migration
             $table->string('period');
             $table->string('count_day_in_week');
             $table->string('price');
+            $table->longText('url_for_pay');
             $table->timestamps();
         });
     }

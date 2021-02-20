@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exe_Programs;
 use App\Kind_of_programs;
 use App\Programs;
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -15,7 +18,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $programs = Programs::orderBy('updated_at', 'desc')->get();
+        $programs = Programs::orderBy('updated_at', 'desc')->paginate(9);
         return view('pages.cabinet', ['programs' => $programs]);
     }
 
@@ -46,19 +49,12 @@ class AdminController extends Controller
             $files->move($destinationPath, $profileImage);
             $programs->image = $profileImage;
         }
-
-
-//        $imageName = time() . '.' . $request->image->extension();
-//        $programs->image = $imageName;
-//        $request->image->move(public_path('images'), $imageName);
-//
         $programs->description = $request->desc;
         $programs->kind_of_programs = $request->kind;
         $programs->period = $request->period;
         $programs->count_day_in_week = $request->cout_week;
-
         $programs->price = $request->price;
-//        dd($programs);
+        $programs->url_for_pay = $request->url_for_pay;
         $programs->save();
 
         return redirect('/admin/programs');
@@ -77,19 +73,28 @@ class AdminController extends Controller
 
     public function details($id)
     {
+        $user = User::find(Auth::user()->id);
         $program = Programs::find($id);
-        return view('pages.details', ['program' => $program]);
+        $gif_programs = $program->exe_programs->first();
+        $access_to_program = $user->programs;
+
+        return view('pages.details', [
+            'program' => $program,
+            'gif_programs' => $gif_programs,
+            'access_to_program' => $access_to_program
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit($id)
     {
-        //
+        $programs = Programs::find($id);
+        return view('pages.trainer.edit', ['programs' => $programs]);
     }
 
     /**
@@ -97,22 +102,47 @@ class AdminController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, $id)
     {
-        //
+        $programs = Programs::find($id);
+        $programs->name = $request->name;
+
+        if ($files = $request->file('image')) {
+            $destinationPath = 'images'; // upload path
+            $profileImage = date('YmdHis') . "." . $files->getClientOriginalExtension();
+            $files->move($destinationPath, $profileImage);
+            $programs->image = $profileImage;
+        }
+
+        $programs->description = $request->desc;
+        $programs->kind_of_programs = $request->kind;
+        $programs->period = $request->period;
+        $programs->count_day_in_week = $request->cout_week;
+        $programs->price = $request->price;
+        $programs->url_for_pay = $request->url_for_pay;
+        $programs->save();
+
+        return redirect('admin/programs');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy($id)
     {
-        //
+        $programs = Programs::find($id);
+        $programs->delete();
+        $exercises = $programs->exe_programs;
+        foreach ($exercises as $s) {
+            $s->delete();
+        }
+        return redirect('admin/programs');
     }
 
 }
+

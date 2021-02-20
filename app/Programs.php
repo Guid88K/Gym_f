@@ -12,4 +12,9 @@ class Programs extends Model
     {
         return $this->hasMany('App\Exe_Programs');
     }
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class);
+    }
 }

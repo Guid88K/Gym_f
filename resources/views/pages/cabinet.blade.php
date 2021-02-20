@@ -18,6 +18,7 @@
             </div>
         </div>
     </div>
+
     <!-- END Hero -->
     <div class="content content-full">
         <!-- Dummy content -->
@@ -33,8 +34,9 @@
                             </a>
                         </div>
                         <div class="block-content border-bottom">
-                            <h4 class="font-size-h5 mb-10">{{$p->name}}</h4>
-                            <h5 class="font-size-h1 font-w300 mb-5">{{$p->price}}$</h5>
+                            <h4 class="font-size-h4 mb-10">{{$p->name}}</h4>
+                                <h4 class="font-size-h6 mb-10 float-right">{{$p->created_at}}</h4>
+                            <h5 class="font-size-h1 font-w300 mb-5">${{$p->price}}</h5>
                             <p class="text-muted">
                                 <i class="fa fa-map-pin mr-5"></i> {{$p->kind_of_programs}}
                             </p>
@@ -44,13 +46,13 @@
                                 <div class="col-6">
                                     <p>
                                         <i class="fa fa-fw fa-calendar text-muted mr-5"></i>
-                                        <strong>{{$p->period}}</strong> Period
+                                        <strong>{{$p->period}}</strong> дн.
                                     </p>
                                 </div>
                                 <div class="col-6">
                                     <p>
                                         <i class="fa fa-fw fa-calendar-check-o text-muted mr-5"></i>
-                                        <strong>{{$p->count_day_in_week}}</strong> Count in week
+                                        <strong>{{$p->count_day_in_week}}</strong>  в неделю
                                     </p>
                                 </div>
                             </div>
@@ -58,17 +60,23 @@
                         @if(Auth::user()->role =='admin')
                             <div class="block-content block-content-full">
                                 <div class="row">
-                                    <div class="col-6">
-                                        <a class="btn btn-sm btn-hero btn-noborder btn-dark btn-block"
-                                           href="be_pages_real_estate_listing_new.html">
-                                            Edit
+                                    <div class="col-6 ">
+                                        <a class="btn d-flex justify-content-center btn-sm btn-hero btn-noborder btn-dark btn-block"
+                                           href="{{route('programs.edit',$p->id)}}">
+                                            Редактирование
                                         </a>
                                     </div>
                                     <div class="col-6">
-                                        <a class="btn btn-sm btn-hero btn-noborder btn-secondary btn-block"
-                                           href="be_pages_real_estate_listing.html">
-                                            Details
-                                        </a>
+
+                                        <form action="{{route('programs.destroy',$p->id)}}" method="post">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button class="btn btn-sm btn-hero btn-noborder btn-secondary btn-block"
+                                                    type="submit">
+                                                Удалить
+                                            </button>
+                                        </form>
+
                                     </div>
 
                                 </div>
@@ -85,11 +93,19 @@
 
                         {{--                        </div>--}}
                         {{--                    </div>--}}
+
                     </div>
-                    <!-- END Property -->
+
                 </div>
+
             @endforeach
         </div>
+        <div class="row  justify-content-center">
+            <div class="col-2">
+                {{$programs->links() }}
+            </div>
+        </div>
+
     </div>
     <!-- END Dummy content -->
 

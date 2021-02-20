@@ -51,8 +51,14 @@ class User extends Authenticatable
     {
         return $this->role === 'nutritionist';
     }
+
     public function isUser()
     {
         return $this->role === 'user';
+    }
+
+    public function programs()
+    {
+        return $this->belongsToMany(Programs::class);
     }
 }
